@@ -1,0 +1,37 @@
+server:
+  port: 8080
+  
+spring:
+  application:
+    name: "PRODUCT-SERVICE"
+  datasource:
+    url: jdbc:postgresql://${DB_HOST:localhost}:5432/product_db
+    username: testuser
+    password: testuser
+    schema: sch_product
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        default_schema: sch_product
+  config:
+    import: configserver:http://localhost:9296
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+#eureka:
+#  instance:
+#    prefer-ip-address: true
+#  client:
+#    fetch-registry: true
+#    register-with-eureka: true
+#    service-url:
+#      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8701/eureka}
+#
+#
+      
+
