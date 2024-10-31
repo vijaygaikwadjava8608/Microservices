@@ -17,6 +17,24 @@ spring:
         default_schema: sch_order
   config:
     import: configserver:http://localhost:9296
+    
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://dev-92235018.okta.com/oauth2/default
+      client:
+        registration:
+          internal-client:
+            provider: okta
+            authorizationGrantType: client_credentials
+            scope: internal
+            clientId: 0oakqjyqosGOTBmnl5d7
+            clientSecret: rPWpsWYa1-abTH6USIktYI51YD7rCBxdlnPNhm3cJEhe7IagCjREcsQsON_gEX_7
+        provider:
+          okta:
+            issuerUri:  https://dev-92235018.okta.com/oauth2/default
+            
 
 
 
